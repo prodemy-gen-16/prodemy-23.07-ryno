@@ -138,4 +138,4 @@ git branch -d feature-login
 > diabaikan, perubahan file atau folder tersebut tidak akan dicatat oleh Git.
 
 1. Buat file baru di dalam repository dengan nama **.gitignore**
-2. Tuliskan daftar nama file atau folder yang ingin diabaikan ke dalam file yang dibuat tadi
+2. Tuliskan daftar nama file atau folder yang ingin diabaikan ke dalam file yang sudah dibuat
