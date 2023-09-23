@@ -1,0 +1,1056 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <title>How to Pick a Font – An In-Depth Guide for Developers</title>
+    <link
+      rel="icon"
+      href="https://cdn.freecodecamp.org/universal/favicons/favicon.ico"
+      type="image/png"
+    />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="navbar">
+        <div class="search-bar">
+          <form>
+            <label for="search"></label>
+            <input
+              type="text"
+              name="search"
+              id="search"
+              placeholder="Search 10,300+ tutorials"
+            />
+          </form>
+        </div>
+        <div class="logo">
+          <a href="https://www.freecodecamp.org/news" target="_blank">
+            <img
+              src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg"
+              alt="freeCodeCamp.org"
+              height="24px"
+            />
+          </a>
+        </div>
+        <nav class="navigation">
+          <a class="forum-button" href="https://forum.freecodecamp.org/"
+            >Forum</a
+          >
+          <a class="donate-button" href="https://www.freecodecamp.org/donate/"
+            >Donate</a
+          >
+        </nav>
+      </div>
+      <a href="https://www.freecodecamp.org/donate" class="banner">
+        <p>
+          Support our charity and our mission.
+          <u>Donate to freeCodeCamp.org</u>.
+        </p>
+      </a>
+    </header>
+
+    <main class="main">
+      <div class="wrapper">
+        <article>
+          <section class="info">
+            <time> September 13, 2023</time>
+            <span>/</span>
+            <a href="https://www.freecodecamp.org/news/tag/fonts/"> #Fonts </a>
+          </section>
+
+          <a
+            class="title"
+            href="https://www.freecodecamp.org/news/things-to-consider-when-picking-fonts/"
+            target="_blank"
+          >
+            <h1>How to Pick a Font – An In-Depth Guide for Developers</h1>
+          </a>
+
+          <section class="author">
+            <img
+              src="https://www.freecodecamp.org/news/content/images/size/w60/2021/06/seth-falco-gravatar.jpeg"
+              alt="Seth Falco"
+            />
+            <a href="https://www.freecodecamp.org/news/author/seth/"
+              >Seth Falco</a
+            >
+          </section>
+
+          <img
+            class="article-image"
+            src="https://www.freecodecamp.org/news/content/images/size/w2000/2023/09/markus-spiske-f81ym3dE5N4-unsplash.jpg"
+            alt="How to Pick a Font – An In-Depth Guide for Developers"
+          />
+
+          <section class="content-and-sidebar">
+            <section class="content">
+              <p>
+                Fonts are not always free. If you're fetching a font that is not
+                already on your user's phone or computer, they will have to
+                download it. And this will impact performance.
+              </p>
+              <p>
+                In documents and subtitles, embedding fonts can easily increase
+                the file size tenfold. As for the web, here are some popular
+                fonts and their potential network impact:
+              </p>
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>Font</th>
+                    <th>Size</th>
+                    <th>Wi-Fi</th>
+                    <th>Regular 4G/LTE</th>
+                    <th>Regular 3G</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <a href="https://fonts.google.com/specimen/Roboto"
+                        >Roboto</a
+                      >
+                    </td>
+                    <td>168.3 KB</td>
+                    <td>0.05 s</td>
+                    <td>0.36 s</td>
+                    <td>1.90 s</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="https://fonts.google.com/specimen/Montserrat"
+                        >Montserrat</a
+                      >
+                    </td>
+                    <td>198.0 KB</td>
+                    <td>0.05 s</td>
+                    <td>0.42 s</td>
+                    <td>2.21 s</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="https://fonts.google.com/specimen/Inter"
+                        >Inter</a
+                      >
+                    </td>
+                    <td>309.8 KB</td>
+                    <td>0.08 s</td>
+                    <td>0.64 s</td>
+                    <td>3.40 s</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="https://fonts.google.com/noto/specimen/Noto+Sans"
+                        >Noto Sans</a
+                      >
+                    </td>
+                    <td>556.2 KB</td>
+                    <td>0.15 s</td>
+                    <td>1.13 s</td>
+                    <td>6.03 s</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="https://fonts.google.com/specimen/JetBrains+Mono"
+                        >JetBrains Mono</a
+                      >
+                    </td>
+                    <td>187.9 KB</td>
+                    <td>0.05 s</td>
+                    <td>0.40 s</td>
+                    <td>2.10 s</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <p>
+                The estimated network speeds and latency are taken from
+                <a
+                  href="https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/throttling/index.html"
+                  >Throttling - Firefox Source Docs</a
+                >.
+              </p>
+              <p>
+                On the modern web, we've normalized fetching fonts from
+                client-side, or embedding fonts in resources that are served to
+                users. While this may be tempting, it actually makes very little
+                sense for most use-cases.
+              </p>
+              <p>
+                This isn't suggesting to never use external fonts. Just a
+                reminder that fonts aren't free, and that it's a good idea to
+                review if it's worth packaging or fetching external fonts when
+                it's avoidable.
+              </p>
+              <p>
+                Instead, I'd recommend you consider an expansive font selection,
+                featuring typefaces available across operating systems. There
+                are times we should fetch external fonts, but it shouldn't be
+                the default attitude in everything that we build.
+              </p>
+              <p>
+                In short, you may just need an arbitrary typeface to show
+                arbitrary text on your website. That's fine. But it's worth
+                sticking to the wide array of typefaces already installed on the
+                client's operating system.
+              </p>
+              <p>
+                In other words… only fetch an external font when it actually
+                enhances the user experience!
+              </p>
+              <h2>Why?</h2>
+              <p>
+                Given the number of typefaces available on all operating
+                systems, there are likely many suitable options for your
+                use-case.
+              </p>
+              <p>
+                There's no need to specifically fetch Roboto, Inter, or another
+                font that's similar enough to the preinstalled options.
+              </p>
+              <p>
+                This is particularly relevant to corporate websites, blogs,
+                forums, and web applications.
+              </p>
+              <p>
+                The user is there to consume content or get a task done. Unless
+                you're looking to be creative, the average user doesn't know,
+                and doesn't care, what typeface it has so long as it's legible.
+              </p>
+              <p>
+                Meanwhile, they may care for other things impacted by your font
+                choices…
+              </p>
+              <h3>Performance</h3>
+              <p>
+                Whether we're talking about embedding fonts in offline
+                documents, or fetching fonts on the web, it increases the
+                overall size and load time of resources.
+              </p>
+              <p>
+                Typefaces can be upwards of 160 KB per font face. The impact of
+                this can be significant on slower networks or old mobile
+                devices.
+              </p>
+              <p>
+                Particularly on the web, you'd derive more value building a
+                lightening fast user experience, than fetching a typeface the
+                user didn't ask for.
+              </p>
+              <p>
+                Until the typeface has finished fetching, sites can choose to
+                block rendering or swap, which neither is ideal.
+              </p>
+              <p>
+                Font swapping is when the font changes shortly after visiting
+                the site, leading to a flicker and an increase in
+                <a href="https://web.dev/cls/">Cumulative Layout Shift</a>.
+              </p>
+
+              <figure>
+                <img
+                  src="https://www.freecodecamp.org/news/content/images/2023/09/mdn-font-swap.gif"
+                  width="1200"
+                  alt="Font flickering"
+                />
+                <figcaption>
+                  A demo of blocking and font swapping on the MDN website. I
+                  refreshed with the cache disabled on a high-spec laptop
+                  connected to Wi-Fi with no throttling.
+                </figcaption>
+              </figure>
+
+              <figure>
+                <img
+                  src="https://www.freecodecamp.org/news/content/images/2023/09/out.gif"
+                  width="1200"
+                  alt="Font not flickering"
+                />
+                <figcaption>
+                  A demo of the MDN website using Nimbus Sans, based on
+                  Helvetica, instead of external fonts. I refreshed under the
+                  same conditions.
+                </figcaption>
+              </figure>
+
+              <p>
+                Dropping external fonts is pretty simple, but can improve load
+                time, reduce bandwidth usage, and avoid font swapping, which all
+                improve your
+                <a href="https://web.dev/vitals/">Core Web Vitals</a> and SEO.
+              </p>
+              <h3>Privacy</h3>
+              <p>
+                When fetching fonts from a third-party server such as Google
+                Fonts, client information is leaked to the third party. This
+                includes the
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Glossary/IP_Address"
+                  >IP Address</a
+                >,
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent"
+                  >User-Agent</a
+                >, and
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer"
+                  >Referer</a
+                >, among other headers.
+              </p>
+              <p>
+                Every website that loads a typeface from Google Fonts, has given
+                Google the potential to track the visitor. The domain you
+                visited, the time you accessed it, what browser and operating
+                system you're on, etc. They can form a timeline of the websites
+                you visit from the fonts alone.
+              </p>
+              <p>
+                Google states that they do not track or store this information.
+                However, given the nature of the internet, they inevitably must
+                receive it.
+              </p>
+              <p>
+                This problem can be avoided by self-serving fonts. If you're
+                going to use an external font, please consider this.
+              </p>
+              <p>
+                However, also know that some users
+                <a
+                  href="https://support.mozilla.org/en-US/kb/change-fonts-and-colors-websites-use#w_custom-fonts"
+                  >disable custom fonts</a
+                >
+                or
+                <a
+                  href="https://github.com/gorhill/uBlock/wiki/Per-site-switches#no-remote-fonts"
+                  >block third-party fonts</a
+                >, so you should still specify at least a generic family name
+                regardless.
+              </p>
+
+              <blockquote>
+                "You should always include at least one generic family name in a
+                <code>font-family</code> list, since there's no guarantee that
+                any given font is available. This lets the browser select an
+                acceptable fallback font when necessary." (Source:
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#try_it"
+                  >MDN Documentation for font-family</a
+                >)
+              </blockquote>
+
+              <h3>Familiarity</h3>
+              <p>
+                Users are familiar with the experience of their operating
+                system.
+              </p>
+              <p>
+                Maybe not how it works under the hood, or even how to perform
+                simple operations, but they do encounter the welcome screen,
+                context menus, and their preinstalled applications regularly.
+              </p>
+              <p>
+                It's safer to stick with typefaces the user already has access
+                to because these are the typefaces the user is already
+                accustomed to reading from.
+              </p>
+              <p>
+                This argument is in a similar vein to why it's a good idea to
+                use the system date picker, color picker, or modal/dialog boxes
+                instead of creating custom ones.
+              </p>
+              <p>Users are familiar with their system!</p>
+              <p>From my experience, often one of the following occurs:</p>
+
+              <ul>
+                <li>
+                  The user couldn't tell that an external font was used, making
+                  it largely redundant. Most non-specialists experience this
+                  everyday, it's hard to even tell that websites are using
+                  different fonts from each other unless you're conscious of it.
+                </li>
+                <li>
+                  The user was able to tell, and thus has a different reading
+                  experience than what they're used to. The potential for
+                  disruption depends on the needs of the user, but that risk is
+                  often unnecessary.
+                </li>
+              </ul>
+
+              <p>
+                Unless you have a reason to change it, it's best to stick with
+                what the user is familiar with.
+              </p>
+              <h2>Who else does this?</h2>
+              <p>
+                Wikipedia is the most notable example, and they even have a page
+                elaborating on the topic:
+                <a href="https://en.wikipedia.org/wiki/Wikipedia:Typography"
+                  >Meta page on Wikipedia's use of typography</a
+                >.
+              </p>
+              <p>
+                Some of the most popular sites don't fetch a single font on
+                their landing page, in favor of using system fonts only:
+              </p>
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>Site</th>
+                    <th>Font Selector</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Facebook</td>
+                    <td>
+                      <code
+                        >SFProDisplay-Regular, Helvetica, Arial,
+                        sans-serif</code
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Instagram</td>
+                    <td>
+                      <code
+                        >-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                        Helvetica, Arial, sans-serif</code
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Cloudflare</td>
+                    <td>
+                      <code
+                        >-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                        Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans",
+                        "Helvetica Neue", sans-serif</code
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Wikipedia</td>
+                    <td>
+                      <code
+                        >-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                        Inter, Helvetica, Arial, sans-serif</code
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Reddit</td>
+                    <td>
+                      <code
+                        >-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                        "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI
+                        Emoji", "Segoe UI Symbol", sans-serif</code
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Bing</td>
+                    <td>
+                      <code
+                        >"Segoe UI", Segoe, Tahoma, Arial, Verdana,
+                        sans-serif</code
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <p>
+                You can verify for yourself by inspecting the site with your
+                browser's development tools.
+              </p>
+              <p>
+                There are no outgoing network requests for fonts, and the
+                <code>font-family</code> properties are set to system fonts
+                only.
+              </p>
+              <h2>Exceptions</h2>
+              <p>
+                There are times loading and embedding fonts does make sense,
+                particularly if the look and feel you're after is significantly
+                different from common system fonts:
+              </p>
+
+              <ul>
+                <li>
+                  You're targeting an environment that doesn't have typefaces
+                  available.
+                </li>
+                <li>To fit with existing branding, like an in-house font.</li>
+                <li>
+                  A creative or unique design, especially relevant for gaming
+                  and artsy sites.
+                </li>
+                <li>
+                  Icon fonts like <a href="https://openmoji.org/">OpenMoji</a>,
+                  but note that most clients come with emojis already.
+                </li>
+                <li>
+                  A website that's literally for distributing, displaying, and
+                  testing fonts.
+                </li>
+              </ul>
+
+              <h2>Consequences</h2>
+              <p>
+                If you apply a local font stack, your text content may not look
+                pixel-for-pixel identical across clients. However, success
+                should be measured by the user experience.
+              </p>
+              <p>
+                It is important for the site to feel familiar, but there are
+                more significant changes between clients already, like the
+                human-interface, resolutions, and DPI.
+              </p>
+              <p>
+                Compared to this, it's fine if the arch of the
+                <code>a</code> has a slightly different radius, or the tick on
+                the <code>l</code> is a few pixels longer. In fact, this is
+                unlikely to go noticed, so it is unlikely to impact the user
+                experience at all.
+              </p>
+              <p>
+                Users would sooner have qualms with the difference in speed or a
+                flicker, before the difference between similar typefaces.
+              </p>
+              <p>
+                Another argument is that allowing different typefaces may make
+                the layout difficult to manage. Glyphs can have different
+                widths, and therefore take up varying space.
+              </p>
+              <p>
+                However, modern sites should be following
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design"
+                  >responsive design</a
+                >, so you should be taking the time to make the pages fluid
+                anyway.
+              </p>
+              <p>
+                To minimize impact, you can use
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals#web_safe_fonts"
+                  >web safe fonts</a
+                >.
+              </p>
+              <p>
+                If you dislike how limiting that is, pick a typeface included
+                with your operating system, and find similar typefaces on other
+                operating systems.
+              </p>
+              <p>
+                Even better if you can pick
+                <a href="https://en.wikipedia.org/wiki/Typeface#metrics"
+                  >metrically compatible typefaces</a
+                >.
+              </p>
+              <h3>Comparison</h3>
+              <p>
+                Let's visit a website and see what it's like to disable
+                downloadable fonts.
+              </p>
+              <p>I'll also replace all font selectors, to use Helvetica.</p>
+              <p>
+                Note, my computer does not actually have Helvetica installed, so
+                my operating system automatically translates this to Nimbus
+                Sans, which is based on Helvetica. Nimbus Sans is preinstalled
+                on <a href="https://www.debian.org/">Debian</a>.
+              </p>
+              <p>
+                In the case of MDN, is the second version really so undesirable
+                that we need to load a 325 KB font, given the penalties and
+                demonstrations raised above? Ultimately, this one is down to
+                user preference, so I'll let you decide.
+              </p>
+
+              <figure>
+                <img
+                  src="https://www.freecodecamp.org/news/content/images/2023/09/1.png"
+                  width="2000"
+                  alt="Inter typeface"
+                />
+                <figcaption>
+                  MDN, with the Inter typeface fetched from client-side.
+                </figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="https://www.freecodecamp.org/news/content/images/2023/09/1-1.png"
+                  width="2000"
+                  alt="Helvetica typeface"
+                />
+                <figcaption>
+                  MDN, with the font-family overridden to use Helvetica.
+                </figcaption>
+              </figure>
+
+              <p>
+                On the flip side, that doesn't mean to never fetch fonts. There
+                are examples where the aesthetic may be more valuable to the
+                user experience than the performance penalty.
+              </p>
+              <p>
+                Let's look at <a href="https://framasoft.org/">Framasoft</a>.
+                They went for a more creative look and feel, also featuring a
+                lot of
+                <a href="https://www.davidrevoy.com/">David Revoy's</a>
+                illustrations.
+              </p>
+              <p>
+                To use Tovari Sans was a design choice which enhances the user
+                experience, and isn't easily replaceable with a local font
+                stack.
+              </p>
+              <p>
+                If we were to take that font away, the page feels inconsistent
+                and unpolished. Even if we cleaned up the CSS, we'd still be
+                detracting from the theme of the website.
+              </p>
+
+              <figure>
+                <img
+                  src="https://www.freecodecamp.org/news/content/images/2023/09/1-2.png"
+                  width="1580"
+                  alt="Tovari Sans typeface"
+                />
+                <figcaption>
+                  Framasoft, with the Tovari Sans typeface fetched from
+                  client-side.
+                </figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="https://www.freecodecamp.org/news/content/images/2023/09/1-4.png"
+                  width="1580"
+                  alt="Overridden to Helvetica"
+                />
+                <figcaption>
+                  Framasoft, with the font-family overridden to use Helvetica.
+                </figcaption>
+              </figure>
+
+              <p>
+                Whether you want to go local, or just need to specify some
+                fallback fonts, here are some helpful resources for picking out
+                your font stack:
+              </p>
+
+              <ul>
+                <li>
+                  <a href="https://developer.apple.com/fonts/system-fonts/"
+                    >List of typefaces included with Apple operating systems</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://learn.microsoft.com/en-us/typography/fonts/windows_11_font_list#introduction"
+                    >List of typefaces included with Windows</a
+                  >
+                </li>
+                <li>
+                  <a href="https://en.wikipedia.org/wiki/Croscore_fonts"
+                    >Core typefaces included with ChromeOS</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals#web_safe_fonts"
+                    >Documentation for web safe fonts</a
+                  >
+                </li>
+              </ul>
+
+              <h2>Cross-Platform Font Stacks</h2>
+              <p>
+                The following is an opinionated list of what your local font
+                stacks could look like. You'll find countless others on the
+                internet if you search.
+              </p>
+              <p>
+                Some font classifications don't explicitly include a font from
+                each operating system, but remember that the generic font family
+                at the end will have you covered.
+              </p>
+              <h3>Sans Serif</h3>
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>Typeface</th>
+                    <th>Operating Systems</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Nimbus Sans</td>
+                    <td>Debian, Ubuntu</td>
+                  </tr>
+                  <tr>
+                    <td>Helvetica</td>
+                    <td>iOS, macOS, tvOS, watchOS</td>
+                  </tr>
+                  <tr>
+                    <td>Arial</td>
+                    <td>iOS, macOS, Windows</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="https://fonts.google.com/specimen/Roboto"
+                        >Roboto</a
+                      >
+                    </td>
+                    <td>Android</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a
+                        href="https://github.com/liberationfonts/liberation-fonts"
+                        >Liberation Sans</a
+                      >
+                    </td>
+                    <td>Debian, Ubuntu</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="https://dejavu-fonts.github.io/">DejaVu Sans</a>
+                    </td>
+                    <td>Debian, postmarketOS, Ubuntu</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="https://fonts.google.com/specimen/Arimo"
+                        >Arimo</a
+                      >
+                    </td>
+                    <td>ChromeOS, Debian</td>
+                  </tr>
+                  <tr>
+                    <td>sans-serif</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h3>Serif</h3>
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>Typeface</th>
+                    <th>Operating Systems</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <a href="https://fonts.google.com/specimen/Tinos"
+                        >Tinos</a
+                      >
+                    </td>
+                    <td>ChromeOS, Debian</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a
+                        href="https://github.com/liberationfonts/liberation-fonts"
+                        >Liberation Serif</a
+                      >
+                    </td>
+                    <td>Debian, Ubuntu</td>
+                  </tr>
+                  <tr>
+                    <td>Times New Roman</td>
+                    <td>iOS, macOS, tvOS, watchOS, Windows</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="https://notofonts.github.io/">Noto Serif</a>
+                    </td>
+                    <td>Arch, postmarketOS, Ubuntu</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="https://fonts.google.com/specimen/PT+Serif"
+                        >PT Serif</a
+                      >
+                    </td>
+                    <td>Debian, iOS, macOS</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="https://fonts.google.com/specimen/Caladea"
+                        >Caladea</a
+                      >
+                    </td>
+                    <td>Ubuntu</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="https://dejavu-fonts.github.io/">DejaVu Serif</a>
+                    </td>
+                    <td>Debian, postmarketOS, Ubuntu</td>
+                  </tr>
+                  <tr>
+                    <td>serif</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h3>Monospace</h3>
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>Typeface</th>
+                    <th>Operating Systems</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <a
+                        href="https://github.com/liberationfonts/liberation-fonts"
+                        >Liberation Mono</a
+                      >
+                    </td>
+                    <td>Debian, Ubuntu</td>
+                  </tr>
+                  <tr>
+                    <td>Monaco</td>
+                    <td>iOS, macOS</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="https://fonts.google.com/specimen/Cousine"
+                        >Cousine</a
+                      >
+                    </td>
+                    <td>ChromeOS, Debian</td>
+                  </tr>
+                  <tr>
+                    <td>Consolas</td>
+                    <td>Windows</td>
+                  </tr>
+                  <tr>
+                    <td>monospace</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h3>Handwriting</h3>
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>Typeface</th>
+                    <th>Operating Systems</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Brush Script MT Italic</td>
+                    <td>iOS, macOS</td>
+                  </tr>
+                  <tr>
+                    <td>Ink Free</td>
+                    <td>Windows</td>
+                  </tr>
+                  <tr>
+                    <td>Segoe Script</td>
+                    <td>Windows</td>
+                  </tr>
+                  <tr>
+                    <td>cursive</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h3>Emoji</h3>
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>Typeface</th>
+                    <th>Operating Systems</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <a
+                        href="https://fonts.google.com/noto/specimen/Noto+Color+Emoji"
+                        >Noto Color Emoji</a
+                      >
+                    </td>
+                    <td>Android, Debian, Fedora, postmarketOS, Ubuntu</td>
+                  </tr>
+                  <tr>
+                    <td>Segoe UI Emoji</td>
+                    <td>Windows</td>
+                  </tr>
+                  <tr>
+                    <td>Apple Color Emoji</td>
+                    <td>iOS, macOS, tvOS, watchOS</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="https://github.com/mozilla/twemoji-colr"
+                        >Twemoji Mozilla</a
+                      >
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>emoji</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h2>Conclusion</h2>
+              <p>
+                In the end, the user experience is what matters most. Sometimes
+                that means prioritizing visual design, other times that means
+                prioritizing performance.
+              </p>
+              <p>
+                I hope this was worth your time, and that with the knowledge you
+                can make an informed decision when choosing fonts for your next
+                project.
+              </p>
+              <p>
+                Feedback and questions welcome, you can hit me up on
+                <a href="https://github.com/SethFalco">GitHub</a>,
+                <a href="https://fosstodon.org/@sethi">Mastodon</a>, or
+                <a href="https://www.linkedin.com/in/sethfalco/">LinkedIn</a>!
+              </p>
+            </section>
+
+            <section class="sidebar">
+              <div class="ads"><span>advertisement</span></div>
+              <div class="ads"><span>advertisement</span></div>
+              <div class="ads"><span>advertisement</span></div>
+              <div class="ads"><span>advertisement</span></div>
+              <div class="ads"><span>advertisement</span></div>
+              <div class="ads"><span>advertisement</span></div>
+              <div class="ads"><span>advertisement</span></div>
+              <div class="ads"><span>advertisement</span></div>
+              <div class="ads"><span>advertisement</span></div>
+              <div class="ads"><span>advertisement</span></div>
+            </section>
+          </section>
+
+          <hr />
+
+          <section class="author-card">
+            <img
+              src="https://www.freecodecamp.org/news/content/images/size/w60/2021/06/seth-falco-gravatar.jpeg"
+              alt="Seth Falco"
+            />
+            <div class="card-body">
+              <a href="/news/author/seth/"> Seth Falco </a>
+              <p>
+                Fun is what matters! - I develop and maintain free and
+                open-source software.
+              </p>
+            </div>
+          </section>
+
+          <hr />
+
+          <section class="call-to-actions">
+            <p>
+              If this article was helpful,
+              <a
+                href="https://twitter.com/intent/tweet?text=How%20to%20Pick%20a%20Font%20%E2%80%93%20An%20In-Depth%20Guide%20for%20Developers%0A%0Ahttps://www.freecodecamp.org/news/things-to-consider-when-picking-fonts/"
+                target="_blank"
+              >
+                tweet it
+              </a>
+              .
+            </p>
+            <p>
+              Learn to code for free. freeCodeCamp's open source curriculum has
+              helped more than 40,000 people get jobs as developers.
+              <a href="https://www.freecodecamp.org/learn/" target="_blank"
+                >Get started</a
+              >
+            </p>
+          </section>
+        </article>
+
+        <div class="ads"><span>advertisement</span></div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="wrapper">
+        <a href="https://www.freecodecamp.org/news/about/" target="_blank">
+          About
+        </a>
+        <a
+          href="https://www.linkedin.com/school/free-code-camp/people/"
+          target="_blank"
+        >
+          Alumni Network
+        </a>
+        <a href="https://github.com/freeCodeCamp/" target="_blank">
+          Open Source
+        </a>
+        <a href="https://www.freecodecamp.org/news/shop/" target="_blank">
+          Shop
+        </a>
+        <a href="https://www.freecodecamp.org/news/support/" target="_blank">
+          Support
+        </a>
+        <a href="https://www.freecodecamp.org/news/sponsors/" target="_blank">
+          Sponsors
+        </a>
+        <a
+          href="https://www.freecodecamp.org/news/academic-honesty-policy/"
+          target="_blank"
+        >
+          Academic Honesty
+        </a>
+        <a
+          href="https://www.freecodecamp.org/news/code-of-conduct/"
+          target="_blank"
+        >
+          Code of Conduct
+        </a>
+        <a
+          href="https://www.freecodecamp.org/news/privacy-policy/"
+          target="_blank"
+        >
+          Privacy Policy
+        </a>
+        <a
+          href="https://www.freecodecamp.org/news/terms-of-service/"
+          target="_blank"
+        >
+          Terms of Service
+        </a>
+        <a
+          href="https://www.freecodecamp.org/news/copyright-policy/"
+          target="_blank"
+        >
+          Copyright Policy
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>
