@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>edge | Exclusive Furniture & Accessories</title>
     <link
       rel="icon"
@@ -22,6 +23,9 @@
     <header>
       <div class="wrapper">
         <div class="header-left">
+          <button type="button" title="menu" id="menu-button">
+            <i class="bi bi-list"></i>
+          </button>
           <a href=""><img src="./images/logo.png" alt="edge" /></a>
         </div>
         <nav class="header-mid">
@@ -151,5 +155,30 @@
         >
       </div>
     </footer>
+
+    <aside>
+      <button id="close-button" type="button" title="close">
+        <i class="bi bi-x-lg"></i>
+      </button>
+      <nav class="sidebar-nav">
+        <a href="#">Catalog</a>
+        <hr />
+        <a href="#">About Us</a>
+        <hr />
+        <a href="#">Contacts</a>
+      </nav>
+    </aside>
+
+    <script type="text/javascript">
+      document.querySelector("#menu-button").addEventListener("click", () => {
+        document.querySelector("aside").classList.add("active");
+        document.body.style.overflowY = "hidden";
+      });
+
+      document.querySelector("#close-button").addEventListener("click", () => {
+        document.querySelector("aside").classList.remove("active");
+        document.body.style.overflowY = "";
+      });
+    </script>
   </body>
 </html>

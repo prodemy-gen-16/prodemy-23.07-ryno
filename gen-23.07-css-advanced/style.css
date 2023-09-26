@@ -10,6 +10,7 @@
 }
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   color: var(--dark);
@@ -42,14 +43,14 @@ html {
 }
 
 .wrapper {
-  max-width: 1200px;
+  max-width: 1340px;
   margin: 0 auto;
   padding: 0 60px;
 }
 
 header {
   position: sticky;
-  z-index: 10;
+  z-index: 9;
   top: 0;
   padding: 20px 0;
   background-color: white;
@@ -62,8 +63,29 @@ header {
   }
 
   & .header-left {
+    display: flex;
+    align-items: center;
+    height: 32px;
+
+    & button {
+      font-size: 2rem;
+      display: none;
+      margin-right: 12px;
+      cursor: pointer;
+      color: var(--grey25);
+      border: none;
+      background-color: transparent;
+    }
+
+    & a {
+      display: inline-block;
+      height: 100%;
+      margin: auto 0;
+    }
+
     & img {
-      height: 32px;
+      height: 100%;
+      margin: auto 0;
     }
   }
 
@@ -74,7 +96,7 @@ header {
     & a {
       font-size: 1.6rem;
       font-weight: 400;
-      padding: 0 2vw;
+      padding: 0 32px;
       text-transform: uppercase;
       color: var(--grey25);
 
@@ -128,6 +150,7 @@ header {
     color: var(--light);
     border: none;
     background-color: var(--dark);
+    transition: background-color 0.5s;
 
     &:hover {
       background-color: var(--grey25);
@@ -159,6 +182,11 @@ main {
         margin-bottom: 12px;
         border-radius: 6px;
         background-color: var(--light);
+        transition: transform 0.5s;
+
+        &:hover {
+          transform: scale(103%);
+        }
       }
 
       & img {
@@ -168,8 +196,12 @@ main {
         mix-blend-mode: multiply;
       }
 
-      & .product-name:hover {
-        color: var(--grey50);
+      & .product-name {
+        transition: color 0.3s;
+
+        &:hover {
+          color: var(--grey50);
+        }
       }
     }
   }
@@ -194,9 +226,158 @@ footer {
     color: var(--grey75);
     text-underline-offset: 4px;
 
+    transition: color 0.5s;
+
     &:hover {
       text-decoration: none;
       color: var(--light);
+    }
+  }
+}
+
+aside {
+  position: fixed;
+  z-index: 10;
+  left: -100vw;
+  top: 0;
+  overflow: hidden;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  padding: 48px 40px;
+  transition:
+    left 0.5s,
+    opacity 0.3s;
+  background-color: white;
+  box-shadow: 2px 0 4px #29292910;
+  opacity: 0;
+
+  &.active {
+    left: 0;
+    opacity: 1;
+  }
+
+  & button {
+    cursor: pointer;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    border: none;
+    background-color: transparent;
+  }
+
+  & i {
+    font-size: 20px;
+    color: var(--grey25);
+  }
+
+  & .sidebar-nav {
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+
+    & a {
+      margin: 24px 0;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 300;
+      letter-spacing: 2px;
+    }
+
+    & hr {
+      border: none;
+      border-top: 1px var(--grey75) solid;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  header {
+    & .header-mid {
+      & a {
+        padding: 0 20px;
+      }
+    }
+  }
+
+  .hero {
+    height: 300px;
+
+    & p {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+    }
+
+    & a {
+      padding: 12px 40px;
+    }
+  }
+
+  main {
+    & .wrapper {
+      margin: 50px auto 60px;
+    }
+
+    & .card-container {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  & .wrapper {
+    padding: 0 20px;
+  }
+
+  .hero {
+    display: none;
+  }
+
+  main {
+    & .card-container {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  header {
+    & .header-left {
+      & button {
+        font-size: 28px;
+        display: inline;
+      }
+    }
+
+    & .header-mid {
+      display: none;
+    }
+
+    & .header-right {
+      & a {
+        margin-left: 12px;
+      }
+    }
+  }
+
+  main {
+    & .wrapper {
+      margin: 20px auto 60px;
+    }
+
+    & .title {
+      margin-bottom: 20px;
+    }
+
+    & .card-container {
+      grid-template-columns: 1fr;
+      gap: 32px;
+
+      & .card {
+        & img {
+          height: 260px;
+        }
+      }
     }
   }
 }
