@@ -5,6 +5,8 @@
   --light: #f8f8f8;
   --dark: #292929;
   --grey25: #454545;
+  --grey50: #696969;
+  --grey75: #c2c2c2;
 }
 
 * {
@@ -51,7 +53,7 @@ header {
   top: 0;
   padding: 20px 0;
   background-color: white;
-  box-shadow: 0 2px 4px #26262610;
+  box-shadow: 0 2px 4px #29292910;
 
   & .wrapper {
     display: flex;
@@ -111,20 +113,25 @@ header {
     margin: auto 0;
   }
 
-  & div {
+  & p {
     font-size: 5rem;
     font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 20px;
+    line-height: 1.1;
+    margin-bottom: 40px;
   }
 
   & a {
     font-size: 1.7rem;
     font-weight: 500;
+    display: inline-block;
     padding: 16px 70px;
     color: var(--light);
     border: none;
     background-color: var(--dark);
+
+    &:hover {
+      background-color: var(--grey25);
+    }
   }
 }
 
@@ -160,6 +167,10 @@ main {
         object-fit: contain;
         mix-blend-mode: multiply;
       }
+
+      & .product-name:hover {
+        color: var(--grey50);
+      }
     }
   }
 }
@@ -175,15 +186,17 @@ footer {
     font-size: 1.6rem;
     font-style: italic;
     text-align: center;
-    color: var(--light);
+    color: var(--grey75);
   }
 
   & a {
     text-decoration: underline;
-    color: var(--light);
+    color: var(--grey75);
+    text-underline-offset: 4px;
 
     &:hover {
       text-decoration: none;
+      color: var(--light);
     }
   }
 }
