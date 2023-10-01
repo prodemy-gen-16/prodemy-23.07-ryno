@@ -1,2 +1,5 @@
-# Webstorm Configuration
-**/.idea
+# WebStorm Configuration
+*/.idea
+
+# Node Dependencies
+*/node_modules
