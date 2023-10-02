@@ -22,8 +22,8 @@
 
     <link href="css/style.css" rel="stylesheet" />
   </head>
-  <body class="relative min-h-screen">
-    <header class="fixed top-0 z-50 w-full bg-white py-5 shadow-md">
+  <body class="relative min-h-screen" onresize="renderProductImage()">
+    <header class="fixed top-0 z-40 w-full bg-white py-5 shadow-md">
       <div
         class="mx-auto flex max-w-[1340px] items-center justify-between px-5 lg:px-16"
       >
@@ -34,6 +34,7 @@
             title="Menu"
             id="menu-button"
             class="mr-3 inline border-0 bg-transparent sm:hidden"
+            onclick="menuButtonClickHandler()"
           >
             <i class="bi bi-list text-2xl"></i>
           </button>
@@ -77,80 +78,59 @@
     <main class="px-5 py-24 lg:mx-auto lg:max-w-[1340px] lg:px-16">
       <a href="#">
         <i class="bi bi-chevron-left inline text-sm"></i>
-        <p class="inline">Category</p>
+        <p class="inline">Catalog</p>
       </a>
 
-      <section class="mt-5 flex flex-col gap-6 md:flex-row lg:gap-14">
+      <section class="mt-5 flex flex-col gap-2 md:flex-row md:gap-8 lg:gap-14">
         <div class="flex flex-col items-center gap-4 md:basis-1/2">
-          <div class="hidden w-full bg-dark-100 md:block">
-            <img
-              class="aspect-square w-full object-cover mix-blend-multiply"
-              src="https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/904/0990413_PE818931_S4.webp"
-              alt="SÖDERHAMN"
-            />
-          </div>
-
-          <div class="relative overflow-hidden">
+          <div class="relative w-full overflow-hidden bg-dark-100">
             <div
-              class="flex w-full snap-x snap-mandatory overflow-auto md:gap-[4%]"
+              class="relative left-0 flex transition-all duration-200"
+              id="display-image"
             >
-              <div
-                class="w-full shrink-0 cursor-pointer snap-start snap-always bg-dark-100 md:w-[22%]"
-              >
+              <div class="w-full shrink-0">
                 <img
                   class="aspect-square w-full object-cover mix-blend-multiply"
                   src="https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/904/0990413_PE818931_S4.webp"
                   alt="SÖDERHAMN"
                 />
               </div>
-              <div
-                class="w-full shrink-0 cursor-pointer snap-start snap-always bg-dark-100 md:w-[22%] md:opacity-50"
-              >
+              <div class="w-full shrink-0">
                 <img
                   class="aspect-square w-full object-cover mix-blend-multiply"
                   src="https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/904/0990415_PE818933_S4.webp"
                   alt="SÖDERHAMN"
                 />
               </div>
-              <div
-                class="w-full shrink-0 cursor-pointer snap-start snap-always bg-dark-100 md:w-[22%] md:opacity-50"
-              >
+              <div class="w-full shrink-0">
                 <img
                   class="aspect-square w-full object-cover mix-blend-multiply"
                   src="https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/904/0990411_PE818914_S4.webp"
                   alt="SÖDERHAMN"
                 />
               </div>
-              <div
-                class="w-full shrink-0 cursor-pointer snap-start snap-always bg-dark-100 md:w-[22%] md:opacity-50"
-              >
+              <div class="w-full shrink-0">
                 <img
                   class="aspect-square w-full object-cover mix-blend-multiply"
                   src="https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/904/0990416_PE818934_S4.webp"
                   alt="SÖDERHAMN"
                 />
               </div>
-              <div
-                class="w-full shrink-0 cursor-pointer snap-start snap-always bg-dark-100 md:w-[22%] md:opacity-50"
-              >
+              <div class="w-full shrink-0">
                 <img
                   class="aspect-square w-full object-cover mix-blend-multiply"
                   src="https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/904/0990414_PE818932_S5.webp"
                   alt="SÖDERHAMN"
                 />
               </div>
-              <div
-                class="w-full shrink-0 cursor-pointer snap-start snap-always bg-dark-100 md:w-[22%] md:opacity-50"
-              >
+              <div class="w-full shrink-0">
                 <img
                   class="aspect-square w-full object-cover mix-blend-multiply"
                   src="https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/904/0990412_PE818930_S5.webp"
                   alt="SÖDERHAMN"
                 />
               </div>
-              <div
-                class="w-full shrink-0 cursor-pointer snap-start snap-always bg-dark-100 md:w-[22%] md:opacity-50"
-              >
+              <div class="w-full shrink-0">
                 <img
                   class="aspect-square w-full object-cover mix-blend-multiply"
                   src="https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/877/0587709_PE672736_S5.webp"
@@ -160,19 +140,107 @@
             </div>
 
             <button
-              class="absolute left-2 top-[50%] z-10 translate-y-[-50%] opacity-50 md:hidden"
+              class="absolute bottom-0 left-0 top-0 z-10 flex w-12 items-center justify-center opacity-50 transition-opacity active:opacity-100 md:bg-gradient-to-r md:from-dark-500/25 md:to-transparent md:opacity-30 md:hover:opacity-100"
+              onclick="leftButtonClickHandler()"
             >
-              <i
-                class="bi bi-arrow-left-circle-fill text-3xl text-dark-100"
-              ></i>
+              <span
+                class="flex items-center justify-center rounded-full bg-dark-500"
+              >
+                <i
+                  class="bi bi-arrow-left-short flex items-center justify-center text-3xl text-dark-100"
+                ></i>
+              </span>
             </button>
             <button
-              class="absolute right-2 top-[50%] z-10 translate-y-[-50%] opacity-50 md:hidden"
+              class="absolute bottom-0 right-0 top-0 z-10 flex w-12 items-center justify-center opacity-50 transition-opacity active:opacity-100 md:bg-gradient-to-l md:from-dark-500/25 md:to-transparent md:opacity-30 md:hover:opacity-100"
+              onclick="rightButtonClickHandler()"
             >
-              <i
-                class="bi bi-arrow-right-circle-fill text-3xl text-dark-100"
-              ></i>
+              <span
+                class="flex items-center justify-center rounded-full bg-dark-500"
+              >
+                <i
+                  class="bi bi-arrow-right-short flex items-center justify-center text-3xl text-dark-100"
+                ></i
+              ></span>
             </button>
+          </div>
+
+          <div class="overflow-hidden">
+            <div
+              id="thumbnails-container"
+              class="hidden snap-x snap-mandatory overflow-auto md:flex md:gap-[4%]"
+            >
+              <div
+                class="thumbnail-image w-full shrink-0 cursor-pointer snap-start bg-dark-100 md:w-[22%]"
+                onclick="thumbnailClickHandler(this)"
+              >
+                <img
+                  class="aspect-square w-full object-cover mix-blend-multiply"
+                  src="https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/904/0990413_PE818931_S3.webp"
+                  alt="SÖDERHAMN"
+                />
+              </div>
+              <div
+                class="thumbnail-image w-full shrink-0 cursor-pointer snap-start bg-dark-100 md:w-[22%] md:opacity-50"
+                onclick="thumbnailClickHandler(this)"
+              >
+                <img
+                  class="aspect-square w-full object-cover mix-blend-multiply"
+                  src="https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/904/0990415_PE818933_S3.webp"
+                  alt="SÖDERHAMN"
+                />
+              </div>
+              <div
+                class="thumbnail-image w-full shrink-0 cursor-pointer snap-start bg-dark-100 md:w-[22%] md:opacity-50"
+                onclick="thumbnailClickHandler(this)"
+              >
+                <img
+                  class="aspect-square w-full object-cover mix-blend-multiply"
+                  src="https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/904/0990411_PE818914_S3.webp"
+                  alt="SÖDERHAMN"
+                />
+              </div>
+              <div
+                class="thumbnail-image w-full shrink-0 cursor-pointer snap-start bg-dark-100 md:w-[22%] md:opacity-50"
+                onclick="thumbnailClickHandler(this)"
+              >
+                <img
+                  class="aspect-square w-full object-cover mix-blend-multiply"
+                  src="https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/904/0990416_PE818934_S3.webp"
+                  alt="SÖDERHAMN"
+                />
+              </div>
+              <div
+                class="thumbnail-image w-full shrink-0 cursor-pointer snap-start bg-dark-100 md:w-[22%] md:opacity-50"
+                onclick="thumbnailClickHandler(this)"
+              >
+                <img
+                  class="aspect-square w-full object-cover mix-blend-multiply"
+                  src="https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/904/0990414_PE818932_S3.webp"
+                  alt="SÖDERHAMN"
+                />
+              </div>
+              <div
+                class="thumbnail-image w-full shrink-0 cursor-pointer snap-start bg-dark-100 md:w-[22%] md:opacity-50"
+                onclick="thumbnailClickHandler(this)"
+              >
+                <img
+                  class="aspect-square w-full object-cover mix-blend-multiply"
+                  src="https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/904/0990412_PE818930_S3.webp"
+                  alt="SÖDERHAMN"
+                />
+              </div>
+              <div
+                class="thumbnail-image w-full shrink-0 cursor-pointer snap-start bg-dark-100 md:w-[22%] md:opacity-50"
+                onclick="thumbnailClickHandler(this)"
+              >
+                <img
+                  class="aspect-square w-full object-cover mix-blend-multiply"
+                  src="https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/877/0587709_PE672736_S3.webp"
+                  alt="SÖDERHAMN"
+                />
+              </div>
+            </div>
           </div>
         </div>
 
@@ -194,7 +262,7 @@
             serat poliester memberi dudukan yang nyaman.
           </p>
 
-          <form action="" class="mt-7">
+          <form action="" class="mt-7 flex items-center">
             <label for="quantity"></label>
             <input
               type="number"
@@ -202,15 +270,37 @@
               id="quantity"
               value="1"
               min="1"
-              class="mr-2 w-16 border-2 border-dark-500 px-3 py-4 text-center"
+              class="h-[60px] w-16 border border-dark-200 px-3 py-4 text-center [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
               title="Quantity"
               placeholder="Qty"
               required
+              onchange="valueChangeHandler()"
             />
+            <div class="mr-4 flex h-[60px] flex-col">
+              <button
+                type="button"
+                role="button"
+                title="+"
+                class="h-full border border-l-0 border-dark-200 px-2 transition-colors active:bg-dark-200 md:hover:bg-dark-100"
+                onclick="plusButtonClickHandler()"
+              >
+                +
+              </button>
+              <button
+                type="button"
+                role="button"
+                title="+"
+                class="h-full border border-l-0 border-t-0 border-dark-200 px-2 transition-colors active:bg-dark-200 md:hover:bg-dark-100"
+                onclick="minusButtonClickHandler()"
+              >
+                -
+              </button>
+            </div>
             <button
               type="submit"
               role="button"
-              class="bg-dark-500 px-8 py-4 text-lg text-dark-100 transition-colors duration-300 hover:bg-dark-400"
+              title="Add to cart"
+              class="bg-dark-500 px-8 py-4 text-lg text-dark-100 transition-colors duration-300 active:bg-black md:hover:bg-dark-400"
             >
               ADD TO CART
             </button>
@@ -232,7 +322,8 @@
     </footer>
 
     <section
-      class="fixed left-[-100vw] top-0 z-50 flex h-screen w-screen flex-col overflow-hidden bg-white px-10 py-12 opacity-0 transition-all"
+      id="side-menu"
+      class="fixed left-[-100vw] top-0 z-50 flex h-screen w-screen flex-col overflow-hidden bg-white px-10 py-12 opacity-0 transition-all duration-300"
     >
       <button
         id="close-button"
@@ -240,6 +331,7 @@
         role="button"
         title="Close"
         class="absolute left-6 top-6 text-xl text-dark-400"
+        onclick="closeButtonClickHandler()"
       >
         <i class="bi bi-x-lg"></i>
       </button>
@@ -247,15 +339,17 @@
         <a href="#" class="my-6 text-center font-light uppercase tracking-wider"
           >Catalog</a
         >
-        <hr class="border-t-dark-100" />
+        <hr class="border-t-dark-200" />
         <a href="#" class="my-6 text-center font-light uppercase tracking-wider"
           >About Us</a
         >
-        <hr class="border-t-dark-100" />
+        <hr class="border-t-dark-200" />
         <a href="#" class="my-6 text-center font-light uppercase tracking-wider"
           >Contacts</a
         >
       </nav>
     </section>
+
+    <script src="./javascript/index.js"></script>
   </body>
 </html>
