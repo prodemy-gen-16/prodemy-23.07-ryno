@@ -44,7 +44,7 @@ filteredProducts = products
 console.log("\nNama product yang harganya lebih dari 6.000.000");
 console.log(filteredProducts);
 
-// Select product name where price < 5.500.000
+// Select product name where price < 5.000.000
 filteredProducts = products
   .filter(({ price }) => price < 5_000_000)
   .map(({ name }) => name);
