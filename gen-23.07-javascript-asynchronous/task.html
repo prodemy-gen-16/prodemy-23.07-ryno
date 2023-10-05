@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Product Search</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <form id="search-form" autocomplete="off">
+      <label for="query">Search Product</label><br />
+      <input
+        id="query"
+        name="q"
+        type="text"
+        placeholder="Product name or description..."
+        size="24"
+        autofocus
+      />
+      <button type="submit" role="button" title="Search">
+        &#x1F50D;&#xFE0E;
+      </button>
+    </form>
+
+    <br />
+    <div id="result-container"></div>
+
+    <script>
+      document.querySelector("#search-form").onsubmit = (event) => {
+        event.preventDefault();
+        const query = document.querySelector("#query").value;
+        getProducts(query);
+      };
+
+      function getProducts(query) {
+        let url = "https://dummyjson.com/products";
+        const params = {
+          limit: 0,
+        };
+
+        if (query) {
+          url += "/search";
+          params.q = query;
+        }
+
+        axios
+          .get(url, { params })
+          .then((response) => {
+            const { products } = response.data;
+            console.log(products);
+            renderProductList(products, query);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }
+
+      function renderProductList(products, query) {
+        const resultContainer = document.querySelector("#result-container");
+        resultContainer.innerHTML = "";
+
+        if (products.length === 0) {
+          resultContainer.innerHTML = `<p>No results for "${query}"</p>`;
+          return;
+        }
+
+        resultContainer.innerHTML = `
+            <table border="1" cellpadding="12" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Description</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody id="table-body"></tbody>
+            </table>`;
+
+        const productsHtml = products.map(
+          ({ title, description, category, price }) => `
+              <tr>
+                <td>${title}</td>
+                <td>${description}</td>
+                <td>${category}</td>
+                <td>${price}</td>
+              </tr>`,
+        );
+
+        const tableBody = document.querySelector("#table-body");
+        for (let productHtml of productsHtml)
+          tableBody.innerHTML += productHtml;
+      }
+    </script>
+  </body>
+</html>
