@@ -7,13 +7,14 @@ function ProductCard({ product }) {
     currency: "IDR",
     minimumFractionDigits: 0,
   });
+  const getThumbnailUrl = (urls) => urls[0].replace("S5.webp", "S3.webp");
 
   return (
     <div className="flex flex-col items-center">
       <a href="#" className="mb-3 rounded-md bg-dark-100">
         <img
           className="h-[260px] w-full object-contain mix-blend-multiply transition-transform duration-300 hover:scale-[103%] xl:h-[320px]"
-          src={image[0]}
+          src={getThumbnailUrl(image)}
           alt={name}
         />
       </a>

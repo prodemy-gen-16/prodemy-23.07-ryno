@@ -1,6 +1,6 @@
 function Hero() {
   return (
-    <section className="bg-hero left relative left-[calc(-50vw+50%)] -mt-6 mb-14 hidden w-screen bg-cover bg-center bg-no-repeat md:block md:h-[300px] lg:h-[600px]">
+    <section className="absolute left-0 right-0 -mt-6 mb-14 hidden bg-hero bg-cover bg-center bg-no-repeat md:block md:h-[300px] lg:h-[600px]">
       <div className="mx-auto flex h-full max-w-[1340px] items-center justify-between px-5 md:px-16">
         <div className="hero-text">
           <p className="mb-8 text-4xl font-bold lg:mb-12 lg:text-5xl lg:leading-tight">

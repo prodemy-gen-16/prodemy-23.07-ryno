@@ -7,7 +7,7 @@ function CatalogPage() {
     <>
       <Hero />
       <h1
-        className="title mb-12 text-center text-3xl font-bold uppercase"
+        className="title mb-12 text-center text-3xl font-bold uppercase md:mt-[332px] lg:mt-[632px]"
         id="catalog"
       >
         Catalog
