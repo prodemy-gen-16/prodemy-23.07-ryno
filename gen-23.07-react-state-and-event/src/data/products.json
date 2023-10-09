@@ -15,6 +15,20 @@
       "release": "2022-03-25"
     },
     {
+      "id": "wvZIW5ju",
+      "name": "Ekanaset",
+      "price": 3695000,
+      "image": [
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/096/1109684_PE870150_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/790/1179059_PE895832_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/096/1109682_PE870149_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/775/1177527_PH189208_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/097/1109721_PE870188_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/409/0940909_PE795235_S5.webp"
+      ],
+      "release": "2023-04-17"
+    },
+    {
       "id": "D03yQtdl",
       "name": "Ekolsund",
       "price": 5995000,
@@ -32,17 +46,12 @@
     {
       "id": "nQ5LqSnS",
       "name": "Havberg",
-      "price": 4695000,
+      "price": 7495000,
       "image": [
-        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/485/1048595_PE843795_S5.webp",
-        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/721/1172102_PH188180_S5.webp",
-        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/485/1048591_PE843796_S5.webp",
-        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/485/1048585_PE843790_S5.webp",
-        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/485/1048586_PE843791_S5.webp",
-        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/485/1048587_PE843792_S5.webp",
-        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/485/1048588_PE843793_S5.webp",
-        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/485/1048589_PE843794_S5.webp",
-        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/485/1048590_PE843800_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/708/1070880_PE854782_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/869/0986918_PE817398_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/869/0986920_PE817400_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/853/0985347_PE816603_S5.webp",
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/392/1039237_PE840091_S5.webp"
       ],
       "release": "2022-08-12"
@@ -110,6 +119,21 @@
       "release": "2023-02-26"
     },
     {
+      "id": "tqvVinhz",
+      "name": "Tullsta",
+      "price": 2495000,
+      "image": [
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/027/0602718_PE680490_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/690/0869044_PE680489_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/690/0869048_PE680493_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/690/0869043_PE680488_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/690/0869045_PE680491_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/690/0869046_PE680492_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/594/1059422_PE849630_S5.webp"
+      ],
+      "release": "2022-08-10"
+    },
+    {
       "id": "spfWJapG",
       "name": "Vimle",
       "price": 5195000,
@@ -122,6 +146,34 @@
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/748/1074816_PE856295_S5.webp"
       ],
       "release": "2022-09-10"
+    },
+    {
+      "id": "YSdjO3GT",
+      "name": "Viskabacka",
+      "price": 2495000,
+      "image": [
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/556/1055697_PE848054_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/064/1206455_PE907539_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/064/1206456_PE907540_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/556/1055693_PE848052_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/837/1083759_PE859091_S5.webp"
+      ],
+      "release": "2023-03-03"
+    },
+    {
+      "id": "knKuWlFb",
+      "name": "Viskafors",
+      "price": 11995000,
+      "image": [
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/880/1088081_PE861053_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/959/1095977_PE864124_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/959/1095978_PE864125_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/960/1096054_PE864184_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/028/1102832_PE867154_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/066/1106651_PE868792_S5.webp",
+        "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/865/1086579_PE860531_S5.webp"
+      ],
+      "release": "2021-12-29"
     }
   ]
 }
