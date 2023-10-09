@@ -2,7 +2,7 @@
   "products": [
     {
       "id": "VUUzOLPu",
-      "name": "ÄLEBY",
+      "name": "Aleby",
       "price": 5995000,
       "image": [
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/148/1214818_PE911748_S5.webp",
@@ -11,11 +11,12 @@
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/156/1215613_PE912085_S5.webp",
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/148/1214830_PE911749_S5.webp",
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/148/1214831_PE911750_S5.webp"
-      ]
+      ],
+      "release": "2022-03-25"
     },
     {
       "id": "D03yQtdl",
-      "name": "EKOLSUND",
+      "name": "Ekolsund",
       "price": 5995000,
       "image": [
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/098/0709891_PE727153_S5.webp",
@@ -25,11 +26,12 @@
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/098/0709892_PE727154_S5.webp",
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/098/0709893_PE727155_S5.webp",
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/963/1196302_PE902882_S5.webp"
-      ]
+      ],
+      "release": "2023-01-02"
     },
     {
       "id": "nQ5LqSnS",
-      "name": "HAVBERG",
+      "name": "Havberg",
       "price": 4695000,
       "image": [
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/485/1048595_PE843795_S5.webp",
@@ -42,11 +44,12 @@
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/485/1048589_PE843794_S5.webp",
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/485/1048590_PE843800_S5.webp",
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/392/1039237_PE840091_S5.webp"
-      ]
+      ],
+      "release": "2022-08-12"
     },
     {
       "id": "hv2bJg6Z",
-      "name": "LANDSKRONA",
+      "name": "Landskrona",
       "price": 6995000,
       "image": [
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/904/0990412_PE818930_S5.webp",
@@ -56,11 +59,12 @@
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/904/0990411_PE818914_S5.webp",
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/904/0990416_PE818934_S5.webp",
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/877/0587709_PE672736_S5.webp"
-      ]
+      ],
+      "release": "2023-07-01"
     },
     {
       "id": "MClXCESX",
-      "name": "OSKARSHAMN",
+      "name": "Oskarshamn",
       "price": 4995000,
       "image": [
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/181/1118159_PE872953_S5.webp",
@@ -68,11 +72,12 @@
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/739/1173989_PH184779_S5.webp",
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/239/1123982_PE874952_S5.webp",
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/612/1161244_PE889316_S5.webp"
-      ]
+      ],
+      "release": "2022-12-19"
     },
     {
       "id": "lpe0W4E6",
-      "name": "SÖDERHAMN",
+      "name": "Soderhamn",
       "price": 6995000,
       "image": [
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/026/0802651_PE768532_S5.webp",
@@ -83,11 +88,12 @@
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/035/0803569_PE768915_S5.webp",
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/035/0803570_PE768913_S5.webp",
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/862/1086221_PE860422_S5.webp"
-      ]
+      ],
+      "release": "2022-11-05"
     },
     {
       "id": "MCGOufwj",
-      "name": "STRANDMON",
+      "name": "Strandmon",
       "price": 4395000,
       "image": [
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/313/0531313_PE647261_S5.webp",
@@ -100,11 +106,12 @@
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/411/0841145_PE647264_S5.webp",
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/411/0841142_PE647263_S5.webp",
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/633/0963366_PE808498_S5.webp"
-      ]
+      ],
+      "release": "2023-02-26"
     },
     {
       "id": "spfWJapG",
-      "name": "VIMLE",
+      "name": "Vimle",
       "price": 5195000,
       "image": [
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/680/1068026_PE852878_S5.webp",
@@ -113,7 +120,8 @@
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/494/0949406_PE799702_S5.webp",
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/493/0949328_PE799640_S5.webp",
         "https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/images/748/1074816_PE856295_S5.webp"
-      ]
+      ],
+      "release": "2022-09-10"
     }
   ]
 }
