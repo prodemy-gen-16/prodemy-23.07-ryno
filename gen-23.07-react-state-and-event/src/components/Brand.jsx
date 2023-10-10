@@ -1,13 +1,7 @@
 import logo from "../assets/logo.png";
+import PropTypes from "prop-types";
 
-function Brand() {
-  function openMenu() {
-    const nav = document.querySelector("#navigation");
-    nav.classList.replace("opacity-0", "opacity-100");
-    nav.classList.replace("left-[-100vw]", "left-0");
-    document.body.classList.add("overflow-y-hidden");
-  }
-
+function Brand({ onOpenMenu }) {
   return (
     <div className="flex items-center">
       <button
@@ -16,7 +10,7 @@ function Brand() {
         title="Menu"
         id="menu-button"
         className="mr-3 inline rounded border-0 bg-transparent p-1 transition-colors hover:bg-dark-100 active:bg-dark-200 sm:hidden"
-        onClick={openMenu}
+        onClick={onOpenMenu}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -39,5 +33,7 @@ function Brand() {
     </div>
   );
 }
+
+Brand.propTypes = { onOpenMenu: PropTypes.func.isRequired };
 
 export default Brand;

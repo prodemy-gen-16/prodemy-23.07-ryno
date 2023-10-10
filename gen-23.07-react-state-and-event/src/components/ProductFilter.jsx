@@ -14,6 +14,7 @@ function ProductFilter({ filter, onFilterChange }) {
       <select
         name="sortBy"
         id="sort"
+        title="Sort By"
         className="rounded border border-dark-300 px-2 py-2 pr-8 focus:border-dark-500 focus:ring-dark-500"
         value={filter.sortBy}
         onChange={onFilterChange}

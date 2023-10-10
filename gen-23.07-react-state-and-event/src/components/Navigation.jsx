@@ -1,15 +1,10 @@
-function Navigation() {
-  function closeMenu() {
-    const nav = document.querySelector("#navigation");
-    nav.classList.replace("opacity-100", "opacity-0");
-    nav.classList.replace("left-0", "left-[-100vw]");
-    document.body.classList.remove("overflow-y-hidden");
-  }
+import PropTypes from "prop-types";
 
+function Navigation({ className, onCloseMenu }) {
   return (
     <nav
       id="navigation"
-      className="fixed left-[-100vw] top-0 z-50 flex h-screen w-screen flex-col overflow-hidden bg-white px-10 py-12 text-xl opacity-0 transition-[left,opacity] duration-300 sm:static sm:flex sm:h-auto sm:w-auto sm:flex-row sm:items-center sm:p-0 sm:opacity-100"
+      className={`${className} fixed top-0 z-50 flex h-screen w-screen flex-col overflow-hidden bg-white px-10 py-12 text-xl transition-[left,opacity] duration-300 sm:static sm:flex sm:h-auto sm:w-auto sm:flex-row sm:items-center sm:p-0 sm:opacity-100`}
     >
       <button
         id="close-button"
@@ -17,7 +12,7 @@ function Navigation() {
         role="button"
         title="Close"
         className="absolute left-5 top-5 rounded p-1 text-xl text-dark-400 transition-colors hover:bg-dark-100 active:bg-dark-200 sm:hidden"
-        onClick={closeMenu}
+        onClick={onCloseMenu}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -57,5 +52,10 @@ function Navigation() {
     </nav>
   );
 }
+
+Navigation.propTypes = {
+  className: PropTypes.string.isRequired,
+  onCloseMenu: PropTypes.func.isRequired,
+};
 
 export default Navigation;
