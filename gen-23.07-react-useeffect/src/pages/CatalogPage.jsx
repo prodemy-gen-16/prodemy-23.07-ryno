@@ -2,10 +2,15 @@ import Hero from "../components/Hero.jsx";
 import ProductList from "../components/ProductList.jsx";
 import data from "../data/products.json";
 import ProductFilter from "../components/ProductFilter.jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import PageTitle from "../components/PageTitle.jsx";
 
 function CatalogPage() {
   const [filter, setFilter] = useState({ nameFilter: "", sortBy: "featured" });
+
+  useEffect(() => {
+    setFilter({ nameFilter: "", sortBy: "latest" });
+  }, []);
 
   const handleFilterChange = (event) => {
     setFilter((prevState) => {
@@ -36,12 +41,9 @@ function CatalogPage() {
   return (
     <>
       <Hero />
-      <h1
-        className="title mb-4 text-center text-3xl font-bold uppercase md:mb-8 md:mt-[332px] lg:mt-[632px]"
-        id="catalog"
-      >
+      <PageTitle id="catalog" className="md:mt-[332px] lg:mt-[632px]">
         Catalog
-      </h1>
+      </PageTitle>
       <ProductFilter filter={filter} onFilterChange={handleFilterChange} />
       <ProductList products={products} />
     </>
