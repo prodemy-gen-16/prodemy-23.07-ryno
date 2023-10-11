@@ -1,5 +1,6 @@
 import logo from "../assets/logo.png";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function Brand({ onOpenMenu }) {
   return (
@@ -27,9 +28,9 @@ function Brand({ onOpenMenu }) {
           />
         </svg>
       </button>
-      <a href="" className="my-auto inline-block ">
+      <Link to="/" className="my-auto inline-block ">
         <img src={logo} alt="edge" className="my-auto h-8" />
-      </a>
+      </Link>
     </div>
   );
 }

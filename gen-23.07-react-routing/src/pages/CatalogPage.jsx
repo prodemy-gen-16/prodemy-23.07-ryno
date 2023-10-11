@@ -6,10 +6,10 @@ import { useEffect, useState } from "react";
 import PageTitle from "../components/PageTitle.jsx";
 
 function CatalogPage() {
-  const [filter, setFilter] = useState({ nameFilter: "", sortBy: "featured" });
+  const [filter, setFilter] = useState({ nameFilter: "", sortBy: "latest" });
 
   useEffect(() => {
-    setFilter({ nameFilter: "", sortBy: "latest" });
+    document.title = "Exclusive Furniture & Accessories | edge";
   }, []);
 
   const handleFilterChange = (event) => {

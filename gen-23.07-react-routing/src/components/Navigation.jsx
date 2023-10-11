@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function Navigation({ isMenuOpen, onCloseMenu }) {
   const className = isMenuOpen
@@ -33,26 +34,29 @@ function Navigation({ isMenuOpen, onCloseMenu }) {
           />
         </svg>
       </button>
-      <a
-        href="#"
+      <Link
+        to="/"
+        onClick={onCloseMenu}
         className="my-6 text-center font-light uppercase tracking-wider sm:m-0 sm:p-0 sm:px-5 sm:text-base sm:font-normal sm:uppercase sm:hover:underline sm:hover:underline-offset-4 lg:px-8"
       >
         Catalog
-      </a>
+      </Link>
       <hr className="border-t-dark-200 sm:hidden" />
-      <a
-        href="#"
+      <Link
+        to="/about"
+        onClick={onCloseMenu}
         className="my-6 text-center font-light uppercase tracking-wider sm:m-0 sm:p-0 sm:px-5 sm:text-base sm:font-normal sm:uppercase sm:hover:underline sm:hover:underline-offset-4 lg:px-8"
       >
         About Us
-      </a>
+      </Link>
       <hr className="border-t-dark-200 sm:hidden" />
-      <a
-        href="#"
+      <Link
+        to="/contact"
+        onClick={onCloseMenu}
         className="my-6 text-center font-light uppercase tracking-wider sm:m-0 sm:p-0 sm:px-5 sm:text-base sm:font-normal sm:uppercase sm:hover:underline sm:hover:underline-offset-4 lg:px-8"
       >
         Contacts
-      </a>
+      </Link>
     </nav>
   );
 }
