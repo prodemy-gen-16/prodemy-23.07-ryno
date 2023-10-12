@@ -16,6 +16,11 @@ export default {
           400: "#454545",
           500: "#292929",
         },
+        primary: {
+          100: "#ad5547",
+          200: "#812b1c",
+          300: "#5d1f14",
+        },
       },
       backgroundImage: {
         hero: "url('/src/assets/hero.jpg')",

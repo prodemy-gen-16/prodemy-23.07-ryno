@@ -5,7 +5,7 @@ function ProductFilter({ filter, onFilterChange }) {
     <section className="mb-6 flex justify-between gap-3">
       <input
         type="text"
-        className="w-full rounded border border-dark-300 px-4 py-2 focus:border-dark-500 focus:ring-dark-500"
+        className="focus:border-primary-100 focus:ring-primary-100 w-full rounded border border-dark-300 px-4 py-2"
         placeholder="Search Product"
         name="nameFilter"
         value={filter.nameFilter}
@@ -15,7 +15,7 @@ function ProductFilter({ filter, onFilterChange }) {
         name="sortBy"
         id="sort"
         title="Sort By"
-        className="rounded border border-dark-300 px-2 py-2 pr-8 focus:border-dark-500 focus:ring-dark-500"
+        className="focus:border-primary-100 focus:ring-primary-100 rounded border border-dark-300 px-2 py-2 pr-8"
         value={filter.sortBy}
         onChange={onFilterChange}
       >

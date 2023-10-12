@@ -23,7 +23,9 @@ function ProductInfo({ product }) {
 
   return (
     <div className="md:basis-1/2">
-      <h1 className="mb-1 text-2xl font-semibold uppercase">{name}</h1>
+      <h1 className="text-primary-100 mb-1 text-2xl font-bold uppercase">
+        {name}
+      </h1>
       <p className="text-lg">{formatCurrency(price)}</p>
       <p className="mt-6">{description}</p>
 
@@ -38,7 +40,7 @@ function ProductInfo({ product }) {
           onBlur={handleQuantityBlur}
           min="1"
           max="100"
-          className="h-[60px] w-16 border border-dark-200 px-3 py-4 text-center [appearance:textfield] focus:border-dark-500 focus:ring-dark-500 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+          className="focus:border-primary-100 focus:ring-primary-100 h-[60px] w-16 border border-dark-200 px-3 py-4 text-center [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
           title="Quantity"
           placeholder="Qty"
           required

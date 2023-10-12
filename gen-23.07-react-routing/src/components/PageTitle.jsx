@@ -4,7 +4,7 @@ function PageTitle({ id, className, children }) {
   return (
     <h1
       id={id}
-      className={`mb-4 text-center text-3xl font-bold uppercase md:mb-8 ${className}`}
+      className={`text-primary-100 mb-4 text-center text-3xl font-bold uppercase md:mb-8 ${className}`}
     >
       {children}
     </h1>

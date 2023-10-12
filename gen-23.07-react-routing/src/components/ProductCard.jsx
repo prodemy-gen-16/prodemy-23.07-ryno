@@ -20,7 +20,7 @@ function ProductCard({ product }) {
         />
       </Link>
       <Link to={`/product/${id}`}>
-        <h5 className="text-lg font-semibold uppercase transition-colors duration-300 hover:text-dark-300">
+        <h5 className="hover:text-primary-100 text-lg font-semibold uppercase transition-colors duration-300">
           {name}
         </h5>
       </Link>

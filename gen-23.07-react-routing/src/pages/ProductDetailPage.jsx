@@ -11,12 +11,9 @@ function ProductDetailPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (product === undefined) navigate("/not-found", { replace: true });
-  }, [navigate, product]);
-
-  useEffect(() => {
     if (product !== undefined) document.title = `${product.name} | edge`;
-  }, [product]);
+    else navigate("/not-found", { replace: true });
+  }, [navigate, product]);
 
   if (product !== undefined) {
     return (

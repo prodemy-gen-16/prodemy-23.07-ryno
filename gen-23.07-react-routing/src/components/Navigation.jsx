@@ -37,7 +37,7 @@ function Navigation({ isMenuOpen, onCloseMenu }) {
       <Link
         to="/"
         onClick={onCloseMenu}
-        className="my-6 text-center font-light uppercase tracking-wider sm:m-0 sm:p-0 sm:px-5 sm:text-base sm:font-normal sm:uppercase sm:hover:underline sm:hover:underline-offset-4 lg:px-8"
+        className="sm:hover:bg-primary-100 my-6 text-center font-light uppercase tracking-wider sm:m-0 sm:mx-2 sm:rounded-full sm:px-3 sm:py-1 sm:text-base sm:font-normal sm:uppercase sm:hover:text-dark-100 lg:mx-8"
       >
         Catalog
       </Link>
@@ -45,7 +45,7 @@ function Navigation({ isMenuOpen, onCloseMenu }) {
       <Link
         to="/about"
         onClick={onCloseMenu}
-        className="my-6 text-center font-light uppercase tracking-wider sm:m-0 sm:p-0 sm:px-5 sm:text-base sm:font-normal sm:uppercase sm:hover:underline sm:hover:underline-offset-4 lg:px-8"
+        className="sm:hover:bg-primary-100 my-6 text-center font-light uppercase tracking-wider sm:m-0 sm:mx-2 sm:rounded-full sm:px-3 sm:py-1 sm:text-base sm:font-normal sm:uppercase sm:hover:text-dark-100 lg:mx-8"
       >
         About Us
       </Link>
@@ -53,7 +53,7 @@ function Navigation({ isMenuOpen, onCloseMenu }) {
       <Link
         to="/contact"
         onClick={onCloseMenu}
-        className="my-6 text-center font-light uppercase tracking-wider sm:m-0 sm:p-0 sm:px-5 sm:text-base sm:font-normal sm:uppercase sm:hover:underline sm:hover:underline-offset-4 lg:px-8"
+        className="sm:hover:bg-primary-100 my-6 text-center font-light uppercase tracking-wider sm:m-0 sm:mx-2 sm:rounded-full sm:px-3 sm:py-1 sm:text-base sm:font-normal sm:uppercase sm:hover:text-dark-100 lg:mx-8"
       >
         Contacts
       </Link>
