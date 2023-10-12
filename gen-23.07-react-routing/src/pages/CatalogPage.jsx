@@ -41,7 +41,10 @@ function CatalogPage() {
   return (
     <>
       <Hero />
-      <PageTitle id="catalog" className="md:mt-[332px] lg:mt-[632px]">
+      <PageTitle
+        id="catalog"
+        className="-mt-24 pt-24 md:mt-[calc(300px-96px+12px)] md:pt-24 lg:mt-[calc(600px-96px+12px)]"
+      >
         Catalog
       </PageTitle>
       <ProductFilter filter={filter} onFilterChange={handleFilterChange} />
