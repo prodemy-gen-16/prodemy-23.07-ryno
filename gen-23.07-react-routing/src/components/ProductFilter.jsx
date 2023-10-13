@@ -1,36 +1,40 @@
 import PropTypes from "prop-types";
 
-function ProductFilter({ filter, onFilterChange }) {
+function ProductFilter({ filter, onInputsChange, onInputsSubmit }) {
   return (
-    <section className="mb-6 flex justify-between gap-3">
+    <form
+      onSubmit={onInputsSubmit}
+      autoComplete="off"
+      className="mb-6 flex justify-between gap-3"
+    >
       <input
-        type="text"
-        className="focus:border-primary-100 focus:ring-primary-100 w-full rounded border border-dark-300 px-4 py-2"
+        name="name"
+        value={filter.query}
+        type="search"
+        className="w-full rounded border border-dark-300 px-4 py-2 focus:border-primary-100 focus:ring-primary-100"
         placeholder="Search Product"
-        name="nameFilter"
-        value={filter.nameFilter}
-        onChange={onFilterChange}
+        onChange={onInputsChange}
       />
       <select
-        name="sortBy"
-        id="sort"
+        name="order"
+        value={filter.order}
         title="Sort By"
-        className="focus:border-primary-100 focus:ring-primary-100 rounded border border-dark-300 px-2 py-2 pr-8"
-        value={filter.sortBy}
-        onChange={onFilterChange}
+        className="rounded border border-dark-300 px-2 py-2 pr-8 focus:border-primary-100 focus:ring-primary-100"
+        onChange={onInputsChange}
       >
         <option value="featured">Featured</option>
         <option value="latest">Latest Product</option>
         <option value="lowest">Lowest Price</option>
         <option value="highest">Highest Price</option>
       </select>
-    </section>
+    </form>
   );
 }
 
 ProductFilter.propTypes = {
   filter: PropTypes.object.isRequired,
-  onFilterChange: PropTypes.func.isRequired,
+  onInputsChange: PropTypes.func.isRequired,
+  onInputsSubmit: PropTypes.func.isRequired,
 };
 
 export default ProductFilter;
