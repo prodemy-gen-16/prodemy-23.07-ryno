@@ -8,12 +8,13 @@ function ProductFilter({ filter, onInputsChange, onInputsSubmit }) {
       className="mb-6 flex justify-between gap-3"
     >
       <input
-        name="name"
+        name="query"
         value={filter.query}
         type="search"
         className="w-full rounded border border-dark-300 px-4 py-2 focus:border-primary-100 focus:ring-primary-100"
         placeholder="Search Product"
         onChange={onInputsChange}
+        spellCheck="false"
       />
       <select
         name="order"

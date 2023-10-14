@@ -1,22 +1,37 @@
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import { HashLoader } from "react-spinners";
 
 import ProductImages from "../components/ProductImages.jsx";
 import ProductInfo from "../components/ProductInfo.jsx";
-import data from "../data/products.json";
+import { useProduct } from "../hooks/useProduct.js";
 
 function ProductDetailPage() {
   const { id } = useParams();
-  const product = [...data.products].find((p) => p.id === id);
   const navigate = useNavigate();
+  const { data: product, error, isLoading } = useProduct(id);
 
   useEffect(() => {
-    if (product !== undefined) document.title = `${product.name} | edge`;
-    else navigate("/not-found", { replace: true });
-  }, [navigate, product]);
+    if (error?.response?.status === 404)
+      navigate("/not-found", { replace: true });
+  }, [error, navigate]);
 
-  if (product !== undefined) {
+  useEffect(() => {
+    if (product) {
+      const { name } = product;
+      document.title = `${name} | edge`;
+    }
+  }, [product]);
+
+  if (isLoading || error)
+    return (
+      <div className="absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center">
+        <HashLoader color="#ad5547" loading></HashLoader>
+      </div>
+    );
+
+  if (product)
     return (
       <>
         <HashLink to="/#catalog" className="flex w-fit items-center">
@@ -41,7 +56,6 @@ function ProductDetailPage() {
         </section>
       </>
     );
-  }
 }
 
 export default ProductDetailPage;
