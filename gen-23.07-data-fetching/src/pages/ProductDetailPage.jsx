@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { HashLoader } from "react-spinners";
 
 import ProductImages from "../components/ProductImages.jsx";
@@ -34,7 +33,7 @@ function ProductDetailPage() {
   if (product)
     return (
       <>
-        <HashLink to="/#catalog" className="flex w-fit items-center">
+        <Link to="/catalog" className="flex w-fit items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
@@ -48,7 +47,7 @@ function ProductDetailPage() {
             />
           </svg>
           <p className="inline">Catalog</p>
-        </HashLink>
+        </Link>
 
         <section className="mt-5 flex flex-col gap-2 md:flex-row md:gap-8 lg:gap-14">
           <ProductImages product={product} />

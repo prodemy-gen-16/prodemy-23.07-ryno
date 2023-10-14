@@ -8,7 +8,7 @@ function ProductList({ products }) {
   ));
 
   return (
-    <section className="mb-10 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 md:gap-x-12 md:gap-y-10 xl:grid-cols-4">
+    <section className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 md:gap-x-12 md:gap-y-10 xl:grid-cols-4">
       {productCards.length > 0 ? (
         productCards
       ) : (

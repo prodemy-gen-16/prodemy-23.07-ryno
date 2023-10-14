@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
 
 function Navigation({ isMenuOpen, onCloseMenu }) {
   const className = isMenuOpen
@@ -35,13 +34,13 @@ function Navigation({ isMenuOpen, onCloseMenu }) {
           />
         </svg>
       </button>
-      <HashLink
-        to="/#catalog"
+      <Link
+        to="/catalog"
         onClick={onCloseMenu}
         className="my-6 text-center font-light uppercase tracking-wider sm:m-0 sm:mx-2 sm:rounded-full sm:px-3 sm:py-1 sm:text-base sm:font-normal sm:uppercase sm:hover:bg-primary-100 sm:hover:text-dark-100 lg:mx-8"
       >
         Catalog
-      </HashLink>
+      </Link>
       <hr className="border-t-dark-200 sm:hidden" />
       <Link
         to="/about"
@@ -52,7 +51,7 @@ function Navigation({ isMenuOpen, onCloseMenu }) {
       </Link>
       <hr className="border-t-dark-200 sm:hidden" />
       <Link
-        to="/contact"
+        to="/contacts"
         onClick={onCloseMenu}
         className="my-6 text-center font-light uppercase tracking-wider sm:m-0 sm:mx-2 sm:rounded-full sm:px-3 sm:py-1 sm:text-base sm:font-normal sm:uppercase sm:hover:bg-primary-100 sm:hover:text-dark-100 lg:mx-8"
       >

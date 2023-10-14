@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { HashLoader } from "react-spinners";
-
-import Hero from "../components/Hero.jsx";
 import ProductList from "../components/ProductList.jsx";
 import ProductFilter from "../components/ProductFilter.jsx";
 import PageTitle from "../components/PageTitle.jsx";
 import { useProduct } from "../hooks/useProduct.js";
+import { useSearchParams } from "react-router-dom";
 
 function CatalogPage() {
   const [products, setProducts] = useState([]);
   const [inputs, setInputs] = useState({ query: "", order: "latest" });
   const [filter, setFilter] = useState({ query: "", order: "latest" });
   const { data, error, isLoading } = useProduct();
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     document.title = "Catalog | edge";
@@ -24,6 +24,15 @@ function CatalogPage() {
   useEffect(() => {
     setFilter((prevState) => ({ ...prevState, order: inputs.order }));
   }, [inputs.order]);
+
+  useEffect(() => {
+    if (searchParams.get("sort")) {
+      setInputs((prevState) => ({
+        ...prevState,
+        order: searchParams.get("sort"),
+      }));
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     if (data) {
@@ -77,13 +86,7 @@ function CatalogPage() {
   if (products)
     return (
       <>
-        <Hero />
-        <PageTitle
-          id="catalog"
-          className="-mt-24 pt-24 md:mt-[calc(300px-96px+12px)] md:pt-24 lg:mt-[calc(600px-96px+12px)]"
-        >
-          Catalog
-        </PageTitle>
+        <PageTitle id="catalog">Catalog</PageTitle>
         <ProductFilter
           filter={inputs}
           onInputsChange={handleInputsChange}
