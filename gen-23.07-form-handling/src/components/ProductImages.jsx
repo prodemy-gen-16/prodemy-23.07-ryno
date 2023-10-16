@@ -66,7 +66,7 @@ function ProductImages({ product }) {
         style={{
           backgroundImage: `url(${image[activeIndex]})`,
         }}
-        className="relative aspect-square w-full overflow-hidden bg-dark-100 bg-cover mix-blend-multiply duration-500"
+        className="relative aspect-square w-full overflow-hidden bg-dark-100 bg-cover bg-blend-multiply duration-500"
       >
         <button
           onClick={handleLeftButtonClick}

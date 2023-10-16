@@ -9,6 +9,7 @@ import NotFoundPage from "../pages/NotFoundPage.jsx";
 import HomePage from "../pages/HomePage.jsx";
 import AboutPage from "../pages/AboutPage.jsx";
 import ContactsPage from "../pages/ContactsPage.jsx";
+import CartPage from "../pages/CartPage.jsx";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/catalog" element={<CatalogPage />} />
           <Route path="/product/:id" element={<ProductDetailPage />} />
+          <Route path="/cart" element={<CartPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contacts" element={<ContactsPage />} />
           <Route path="/not-found" element={<NotFoundPage />} />

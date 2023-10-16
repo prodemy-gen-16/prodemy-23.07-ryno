@@ -6,3 +6,5 @@ export const formatCurrency = (price) =>
   }).format(price);
 
 export const formatDate = (date) => new Date(date).toLocaleDateString("id-ID");
+
+export const phoneRegex = /^08[0-9]{8,11}$/;
