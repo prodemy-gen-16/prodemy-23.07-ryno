@@ -23,7 +23,6 @@ function QuantityInput({ className }) {
       <input
         type="number"
         name="quantity"
-        id="quantity"
         value={quantity}
         onChange={handleQuantityChange}
         onBlur={handleQuantityBlur}
