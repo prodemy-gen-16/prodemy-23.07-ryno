@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { CartContext } from "../context/CartContext.jsx";
+import { useSelector } from "react-redux";
 
 function UserMenu() {
-  const { cart } = useContext(CartContext);
+  const cart = useSelector((state) => state.cart);
+
   return (
     <nav className="flex items-center">
       <Link

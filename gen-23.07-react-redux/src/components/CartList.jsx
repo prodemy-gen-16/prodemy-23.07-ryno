@@ -1,10 +1,9 @@
-import { useContext } from "react";
+import { useSelector } from "react-redux";
 import { formatCurrency } from "../services/format.js";
-import { CartContext } from "../context/CartContext.jsx";
 import CartItem from "./CartItem.jsx";
 
 function CartList() {
-  const { cart } = useContext(CartContext);
+  const cart = useSelector((state) => state.cart);
 
   return (
     <div className="mt-6 grid h-full grid-cols-[auto,1fr] gap-x-4 gap-y-8 sm:gap-x-8 md:mt-0 md:basis-2/3">

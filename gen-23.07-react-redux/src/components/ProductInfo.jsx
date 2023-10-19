@@ -1,13 +1,15 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
+import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import { formatCurrency } from "../services/format.js";
-import { CartContext } from "../context/CartContext.jsx";
+import { addCartItem, updateCartQty } from "../redux/cartAction.js";
 
 function ProductInfo({ product }) {
   const { id, name, price, description } = product;
   const [quantity, setQuantity] = useState(1);
-  const { cart, setCart } = useContext(CartContext);
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
 
   const handleQuantityChange = (event) => {
     setQuantity(~~event.target.value);
@@ -25,18 +27,15 @@ function ProductInfo({ product }) {
   const handleCartSubmit = (event) => {
     event.preventDefault();
 
-    const newItem = { product, qty: quantity };
     const index = cart.findIndex((item) => item.product.id === id);
-    if (index === -1) setCart([...cart, newItem]);
-    else
-      setCart([
-        ...cart.slice(0, index),
-        {
-          ...cart[index],
-          qty: cart[index].qty + newItem.qty,
-        },
-        ...cart.slice(index + 1),
-      ]);
+    const payload = { product, qty: quantity };
+
+    if (index === -1) {
+      dispatch(addCartItem(payload));
+    } else {
+      payload.index = index;
+      dispatch(updateCartQty(payload));
+    }
 
     toast.success("Added to cart.", {
       position: "bottom-right",

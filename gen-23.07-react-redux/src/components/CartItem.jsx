@@ -1,35 +1,36 @@
-import { formatCurrency } from "../services/format.js";
+import { useState } from "react";
 import PropTypes from "prop-types";
-import { useContext, useEffect, useState } from "react";
-import { CartContext } from "../context/CartContext.jsx";
+import { useDispatch, useSelector } from "react-redux";
+import { formatCurrency } from "../services/format.js";
+import {
+  decreaseCartQty,
+  deleteCartItem,
+  increaseCartQty,
+} from "../redux/cartAction.js";
 
 function CartItem({ product, qty }) {
   const { id, name, image, price } = product;
   const [quantity, setQuantity] = useState(qty);
-  const { cart, setCart } = useContext(CartContext);
-
-  useEffect(() => {
-    const index = cart.findIndex((item) => item.product.id === id);
-    setCart([
-      ...cart.slice(0, index),
-      {
-        ...cart[index],
-        qty: quantity,
-      },
-      ...cart.slice(index + 1),
-    ]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [quantity]);
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
   const handlePlusClick = () => {
-    if (quantity < 100) setQuantity((prevState) => prevState + 1);
+    if (quantity < 100) {
+      const index = cart.findIndex((item) => item.product.id === id);
+      dispatch(increaseCartQty({ index }));
+      setQuantity((prevState) => prevState + 1);
+    }
   };
   const handleMinusClick = () => {
-    if (quantity > 1) setQuantity((prevState) => prevState - 1);
+    if (quantity > 1) {
+      const index = cart.findIndex((item) => item.product.id === id);
+      dispatch(decreaseCartQty({ index }));
+      setQuantity((prevState) => prevState - 1);
+    }
   };
   const handleDeleteClick = () => {
     const index = cart.findIndex((item) => item.product.id === id);
-    setCart([...cart.slice(0, index), ...cart.slice(index + 1)]);
+    dispatch(deleteCartItem({ index }));
   };
 
   return (

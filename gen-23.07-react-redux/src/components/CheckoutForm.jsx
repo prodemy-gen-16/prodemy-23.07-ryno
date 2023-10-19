@@ -1,15 +1,16 @@
-import { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { toast, ToastContainer } from "react-toastify";
 import { phoneRegex } from "../services/format.js";
-import { CartContext } from "../context/CartContext.jsx";
 import { postOrder } from "../services/api.js";
 import { generateOrderId } from "../services/generator.js";
+import { checkoutOrder } from "../redux/cartAction.js";
 
 function CheckoutForm() {
-  const { cart, setCart } = useContext(CartContext);
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
   const schema = yup.object().shape({
     name: yup.string().required("Required"),
@@ -44,7 +45,7 @@ function CheckoutForm() {
 
     const payload = { id, time, ...data, items, total };
     postOrder(payload).then(() => {
-      setCart([]);
+      dispatch(checkoutOrder());
       reset();
 
       toast.success("Checkout Successful", {
