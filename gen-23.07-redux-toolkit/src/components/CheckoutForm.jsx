@@ -6,7 +6,7 @@ import { toast, ToastContainer } from "react-toastify";
 import { phoneRegex } from "../services/format.js";
 import { postOrder } from "../services/api.js";
 import { generateOrderId } from "../services/generator.js";
-import { checkoutOrder } from "../redux/cartAction.js";
+import { checkoutOrder } from "../redux/cartSlice.js";
 
 function CheckoutForm() {
   const cart = useSelector((state) => state.cart);

@@ -6,7 +6,7 @@ import {
   decreaseCartQty,
   deleteCartItem,
   increaseCartQty,
-} from "../redux/cartAction.js";
+} from "../redux/cartSlice.js";
 
 function CartItem({ product, qty }) {
   const { id, name, image, price } = product;

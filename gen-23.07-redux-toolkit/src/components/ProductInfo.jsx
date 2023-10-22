@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import { formatCurrency } from "../services/format.js";
-import { addCartItem, updateCartQty } from "../redux/cartAction.js";
+import { addCartItem, updateCartQty } from "../redux/cartSlice.js";
 
 function ProductInfo({ product }) {
   const { id, name, price, description } = product;
