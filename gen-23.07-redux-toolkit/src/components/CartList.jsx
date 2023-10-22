@@ -3,7 +3,7 @@ import { formatCurrency } from "../services/format.js";
 import CartItem from "./CartItem.jsx";
 
 function CartList() {
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.cart.items);
 
   return (
     <div className="mt-6 grid h-full grid-cols-[auto,1fr] gap-x-4 gap-y-8 sm:gap-x-8 md:mt-0 md:basis-2/3">

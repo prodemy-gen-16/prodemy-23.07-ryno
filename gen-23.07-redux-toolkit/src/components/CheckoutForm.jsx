@@ -9,7 +9,7 @@ import { generateOrderId } from "../services/generator.js";
 import { checkoutOrder } from "../redux/cartSlice.js";
 
 function CheckoutForm() {
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
 
   const schema = yup.object().shape({

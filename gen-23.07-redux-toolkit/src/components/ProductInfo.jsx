@@ -9,7 +9,7 @@ function ProductInfo({ product }) {
   const { id, name, price, description } = product;
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.cart.items);
 
   const handleQuantityChange = (event) => {
     setQuantity(~~event.target.value);
@@ -28,9 +28,10 @@ function ProductInfo({ product }) {
     event.preventDefault();
 
     const index = cart.findIndex((item) => item.product.id === id);
-    const payload = { product, qty: quantity };
+    const payload = { qty: quantity };
 
     if (index === -1) {
+      payload.product = product;
       dispatch(addCartItem(payload));
     } else {
       payload.index = index;

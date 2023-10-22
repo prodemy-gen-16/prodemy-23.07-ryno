@@ -11,7 +11,7 @@ import {
 function CartItem({ product, qty }) {
   const { id, name, image, price } = product;
   const [quantity, setQuantity] = useState(qty);
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
 
   const handlePlusClick = () => {
