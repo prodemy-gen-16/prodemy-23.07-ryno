@@ -1,29 +1,26 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { removeAuth } from "../redux/authSlice.js";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
-function UserMenu() {
+function UserMenu({ onOpenModal }) {
   const cart = useSelector((state) => state.cart.items);
   const user = useSelector((state) => state.auth.user);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const [dropdown, setDropdown] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
-    document.addEventListener("click", () => setDropdown(false));
+    document.addEventListener("click", () => setIsDropdownOpen(false));
     return () =>
-      document.removeEventListener("click", () => setDropdown(false));
+      document.removeEventListener("click", () => setIsDropdownOpen(false));
   }, []);
 
   const handleToggleDropdown = (event) => {
     event.stopPropagation();
-    setDropdown(!dropdown);
+    setIsDropdownOpen(!isDropdownOpen);
   };
 
   const handleLogoutClick = () => {
-    dispatch(removeAuth());
-    navigate("/login");
+    onOpenModal();
   };
 
   return (
@@ -61,7 +58,7 @@ function UserMenu() {
           <div className="relative">
             <button
               className={`${
-                dropdown && "bg-dark-100 shadow"
+                isDropdownOpen && "bg-dark-100 shadow"
               } relative ml-2 rounded p-1 transition-colors hover:bg-dark-100 active:bg-dark-200`}
               role="button"
               type="button"
@@ -83,7 +80,7 @@ function UserMenu() {
                 />
               </svg>
             </button>
-            {dropdown && (
+            {isDropdownOpen && (
               <div
                 className="absolute right-0 top-full mt-2 rounded border bg-dark-100 p-2 shadow"
                 onBlur={handleToggleDropdown}
@@ -138,5 +135,7 @@ function UserMenu() {
     </nav>
   );
 }
+
+UserMenu.propTypes = {onOpenModal: PropTypes.func.isRequired};
 
 export default UserMenu;
