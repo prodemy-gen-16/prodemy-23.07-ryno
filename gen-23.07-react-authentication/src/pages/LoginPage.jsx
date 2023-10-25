@@ -1,16 +1,21 @@
+import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useDispatch } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import illustration from "../assets/auth.svg";
 import { login } from "../services/api.js";
-import { useDispatch } from "react-redux";
 import { setAuth } from "../redux/authSlice.js";
 
 function LoginPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "Login | edge";
+  }, []);
 
   const schema = yup.object().shape({
     email: yup.string().email("Email Invalid").required("Required"),
@@ -21,23 +26,38 @@ function LoginPage() {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
+    resetField,
+    setFocus,
   } = useForm({
     resolver: yupResolver(schema),
   });
 
   const onLogin = (data) => {
+    const id = toast.loading("Logging you in...");
+
     login(data)
       .then((response) => {
         dispatch(setAuth(response.data));
         navigate("/catalog");
       })
       .catch((error) => {
-        const message = error.response
-          ? "Your credentials are incorrect"
-          : error.message;
-        toast.error(message);
-        reset();
+        const { response } = error;
+        let message;
+
+        if (response) {
+          message = "Your credentials are incorrect";
+          resetField("password");
+          setFocus("password");
+        } else {
+          message = error.message;
+        }
+
+        toast.update(id, {
+          render: message,
+          type: "error",
+          isLoading: false,
+          autoClose: true,
+        });
       });
   };
 

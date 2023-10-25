@@ -1,14 +1,27 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeAuth } from "../redux/authSlice.js";
+import { useEffect, useState } from "react";
 
 function UserMenu() {
   const cart = useSelector((state) => state.cart.items);
   const user = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [dropdown, setDropdown] = useState(false);
 
-  const onLogoutClick = () => {
+  useEffect(() => {
+    document.addEventListener("click", () => setDropdown(false));
+    return () =>
+      document.removeEventListener("click", () => setDropdown(false));
+  }, []);
+
+  const handleToggleDropdown = (event) => {
+    event.stopPropagation();
+    setDropdown(!dropdown);
+  };
+
+  const handleLogoutClick = () => {
     dispatch(removeAuth());
     navigate("/login");
   };
@@ -45,28 +58,58 @@ function UserMenu() {
               </div>
             )}
           </Link>
-          <button
-            onClick={onLogoutClick}
-            className="ml-2 rounded p-1 transition-colors hover:bg-dark-100 active:bg-dark-200"
-            role="button"
-            type="button"
-            title="Logout"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="h-6 w-6"
+          <div className="relative">
+            <button
+              className={`${
+                dropdown && "bg-dark-100 shadow"
+              } relative ml-2 rounded p-1 transition-colors hover:bg-dark-100 active:bg-dark-200`}
+              role="button"
+              type="button"
+              title="User"
+              onClick={handleToggleDropdown}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
-              />
-            </svg>
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="h-6 w-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
+            </button>
+            {dropdown && (
+              <div
+                className="absolute right-0 top-full mt-2 rounded border bg-dark-100 p-2 shadow"
+                onBlur={handleToggleDropdown}
+              >
+                <Link
+                  className="my-1 block cursor-pointer whitespace-nowrap px-4 text-right font-medium capitalize transition-colors hover:text-primary-100"
+                  to={`/users/${user.id}`}
+                >
+                  {user?.name.toLowerCase()}
+                </Link>
+                <hr className="my-2 border-dark-200 text-right" />
+                <Link
+                  className="my-1 block cursor-pointer whitespace-nowrap px-4 text-right transition-colors hover:text-primary-100"
+                  to="/orders"
+                >
+                  Order History
+                </Link>
+                <div
+                  className="my-1 block cursor-pointer whitespace-nowrap px-4 text-right transition-colors hover:text-primary-100"
+                  onClick={handleLogoutClick}
+                >
+                  Logout
+                </div>
+              </div>
+            )}
+          </div>
         </>
       ) : (
         <Link

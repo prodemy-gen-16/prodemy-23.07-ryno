@@ -4,12 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import { formatCurrency } from "../services/format.js";
 import { addCartItem, updateCartQty } from "../redux/cartSlice.js";
+import { useNavigate } from "react-router-dom";
 
 function ProductInfo({ product }) {
   const { id, name, price, description } = product;
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.items);
+  const user = useSelector((state) => state.auth.user);
+  const navigate = useNavigate();
 
   const handleQuantityChange = (event) => {
     setQuantity(~~event.target.value);
@@ -26,6 +29,11 @@ function ProductInfo({ product }) {
   };
   const handleCartSubmit = (event) => {
     event.preventDefault();
+
+    if (!user?.name) {
+      navigate("/login");
+      return;
+    }
 
     const index = cart.findIndex((item) => item.product.id === id);
     const payload = { qty: quantity };
