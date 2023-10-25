@@ -176,5 +176,13 @@
       "release": "2022-10-29"
     }
   ],
+  "users": [
+    {
+      "email": "admin@email.com",
+      "password": "$2a$10$h7qq8x1I.GcgBUGn02H6K.5gyhRxCacVcZusiNyD1q4FtsBu.EYGS",
+      "name": "admin",
+      "id": 1
+    }
+  ],
   "orders": []
 }

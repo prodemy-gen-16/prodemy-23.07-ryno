@@ -6,3 +6,5 @@ export const getProduct = (url) =>
   axios.get(BASE_URL + url).then((response) => response.data);
 
 export const postOrder = (payload) => axios.post(BASE_URL + "/orders", payload);
+
+export const login = (payload) => axios.post(BASE_URL + "/login", payload);
